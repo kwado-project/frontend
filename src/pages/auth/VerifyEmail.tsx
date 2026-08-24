@@ -80,7 +80,7 @@ export default function VerifyEmail() {
       toast({
         variant: "destructive",
         title: "Verification failed",
-        description: error.response?.data?.message || "Invalid or expired code.",
+        description: error?.message || "Invalid or expired code.",
       });
     }
   }
@@ -102,7 +102,7 @@ export default function VerifyEmail() {
       toast({
         variant: "destructive",
         title: "Failed to resend",
-        description: error.response?.data?.message || "An error occurred.",
+        description: error?.message || "An error occurred.",
       });
     }
   }

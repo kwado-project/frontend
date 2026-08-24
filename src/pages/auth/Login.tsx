@@ -61,7 +61,7 @@ export default function Login() {
       toast({
         variant: "destructive",
         title: "Login failed",
-        description: error.response?.data?.message || "Invalid email or password. Please try again.",
+        description: error?.message || "Invalid email or password. Please try again.",
       });
     }
   }

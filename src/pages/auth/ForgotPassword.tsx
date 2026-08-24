@@ -42,7 +42,7 @@ export default function ForgotPassword() {
       toast({
         variant: "destructive",
         title: "Request failed",
-        description: error.response?.data?.message || "An error occurred.",
+        description: error?.message || "An error occurred.",
       });
     }
   }

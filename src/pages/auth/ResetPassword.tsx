@@ -69,7 +69,7 @@ export default function ResetPassword() {
       toast({
         variant: "destructive",
         title: "Reset failed",
-        description: error.response?.data?.message || "An error occurred. The token may be expired.",
+        description: error?.message || "An error occurred. The token may be expired.",
       });
     }
   }

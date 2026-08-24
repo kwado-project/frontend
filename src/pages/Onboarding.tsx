@@ -111,7 +111,7 @@ export default function Onboarding() {
         variant: "destructive",
         title: "Setup failed",
         description:
-          error.response?.data?.message ||
+          error?.message ||
           "An error occurred during setup.",
       });
     }

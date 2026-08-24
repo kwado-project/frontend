@@ -35,7 +35,7 @@ export function PaymentSuccess() {
           toast({
             variant: "destructive",
             title: "Verification Failed",
-            description: err.response?.data?.message || "Could not verify payment.",
+            description: err?.message || "Could not verify payment.",
           });
           setLocation("/payment/failed");
         }

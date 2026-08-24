@@ -52,7 +52,7 @@ export default function Register() {
 
       setLocation("/verify-email");
     } catch (error: any) {
-      const errorMessage = error.response?.data?.message || "An error occurred. Please try again.";
+      const errorMessage = error?.message || "An error occurred. Please try again.";
       form.setError("root", { message: errorMessage });
     }
   }

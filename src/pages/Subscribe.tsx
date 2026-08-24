@@ -21,7 +21,7 @@ export default function Subscribe() {
       toast({
         variant: "destructive",
         title: "Payment initialization failed",
-        description: error.response?.data?.message || "An error occurred while setting up payment.",
+        description: error?.message || "An error occurred while setting up payment.",
       });
     }
   }
