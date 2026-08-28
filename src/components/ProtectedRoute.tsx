@@ -49,8 +49,8 @@ export function ProtectedRoute({
     return null;
   }
 
-  if (isError || !subscriptionStatus?.active) {
-    if (location !== "/subscribe") setLocation("/subscribe");
+  if ((isError || !subscriptionStatus?.active) && location !== "/subscribe") {
+    setLocation("/subscribe");
     return null;
   }
 
