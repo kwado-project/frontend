@@ -61,13 +61,13 @@ function Router() {
         <ProtectedRoute><Subscribe /></ProtectedRoute>
       </Route>
       <Route path="/payment/success">
-        <ProtectedRoute><PaymentSuccess /></ProtectedRoute>
+        <ProtectedRoute requireOnboarding={false}><PaymentSuccess /></ProtectedRoute>
       </Route>
       <Route path="/payment/failed">
-        <ProtectedRoute><PaymentFailed /></ProtectedRoute>
+        <ProtectedRoute requireOnboarding={false}><PaymentFailed /></ProtectedRoute>
       </Route>
       <Route path="/payment/callback">
-        <ProtectedRoute><PaymentCallback /></ProtectedRoute>
+        <ProtectedRoute requireOnboarding={false}><PaymentCallback /></ProtectedRoute>
       </Route>
       <Route path="/quiz">
         <ProtectedRoute><Quiz /></ProtectedRoute>
