@@ -3,10 +3,20 @@ import { useLocation } from "wouter";
 import { useAuth } from "../store/auth";
 import { useGetSubscriptionStatus } from "@/lib/hooks";
 
-export function ProtectedRoute({ children, requireAdmin = false }: { children: ReactNode; requireAdmin?: boolean }) {
+export function ProtectedRoute({
+  children,
+  requireAdmin = false,
+  requireOnboarding = true,
+}: {
+  children: ReactNode;
+  requireAdmin?: boolean;
+  requireOnboarding?: boolean;
+}) {
   const [location, setLocation] = useLocation();
   const { user, isAuthenticated } = useAuth();
-  const { data: subscriptionStatus, isLoading, isError } = useGetSubscriptionStatus({ query: { enabled: !!user && user.onboardingComplete } });
+  const { data: subscriptionStatus, isLoading, isError } = useGetSubscriptionStatus({
+    query: { enabled: !!user && user.onboardingComplete && requireOnboarding },
+  });
 
   if (!isAuthenticated || !user) {
     setLocation("/login");
@@ -24,6 +34,10 @@ export function ProtectedRoute({ children, requireAdmin = false }: { children: R
   if (!user.emailVerified) {
     if (location !== "/verify-email") setLocation("/verify-email");
     return null;
+  }
+
+  if (!requireOnboarding) {
+    return <>{children}</>;
   }
 
   if (!user.onboardingComplete) {

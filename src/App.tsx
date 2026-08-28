@@ -53,9 +53,10 @@ function Router() {
       <Route path="/reset-password" component={ResetPassword} />
       <Route path="/pricing" component={Pricing} />
 
-      <Route path="/onboarding" component={Onboarding} />
-        
-     
+      <Route path="/onboarding">
+        <ProtectedRoute requireOnboarding={false}><Onboarding /></ProtectedRoute>
+      </Route>
+
       <Route path="/subscribe">
         <ProtectedRoute><Subscribe /></ProtectedRoute>
       </Route>
